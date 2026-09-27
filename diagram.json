@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -118.2, "left": -93.2, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 125.4, "left": 297, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -56.1,
+      "left": -311.3,
+      "attrs": { "distance": "134" }
+    },
+    {
+      "type": "wokwi-stepper-motor",
+      "id": "stepper1",
+      "top": -399.59,
+      "left": 269.23,
+      "attrs": { "size": "17" }
+    },
+    { "type": "wokwi-a4988", "id": "drv1", "top": -379.2, "left": -24, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -247.2,
+      "left": -132.6,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -178.15,
+      "left": 229,
+      "rotate": 180,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -330,
+      "left": -207.4,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -272.4,
+      "left": -178.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -330,
+      "left": -149.8,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -274.45,
+      "left": 38.4,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": -188.05,
+      "left": 316.8,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "uno:5V", "bb1:tp.25", "red", [ "v0" ] ],
+    [ "uno:GND.1", "bb1:bn.25", "black", [ "v0" ] ],
+    [ "ultrasonic1:GND", "bb1:bn.1", "black", [ "v0" ] ],
+    [ "ultrasonic1:VCC", "bb1:tp.1", "red", [ "v0" ] ],
+    [ "ultrasonic1:TRIG", "bb1:1b.j", "green", [ "v0" ] ],
+    [ "ultrasonic1:ECHO", "bb1:2b.f", "green", [ "v0" ] ],
+    [ "uno:9", "bb1:1b.i", "green", [ "v0" ] ],
+    [ "bb1:2b.g", "uno:10", "green", [ "v0" ] ],
+    [ "drv1:STEP", "bb1:5t.a", "green", [ "h0" ] ],
+    [ "uno:3", "bb1:5t.b", "green", [ "v0" ] ],
+    [ "drv1:DIR", "bb1:3t.a", "green", [ "h0" ] ],
+    [ "uno:4", "bb1:3t.c", "green", [ "v0" ] ],
+    [ "drv1:ENABLE", "bb1:8t.a", "green", [ "h0" ] ],
+    [ "uno:5", "bb1:8t.d", "green", [ "v0" ] ],
+    [ "drv1:SLEEP", "drv1:RESET", "green", [ "h0" ] ],
+    [ "drv1:VDD", "bb1:tp.24", "green", [ "h0" ] ],
+    [ "drv1:GND.1", "bb1:bn.24", "black", [ "v0" ] ],
+    [ "drv1:VMOT", "bb1:tp.20", "green", [ "h0" ] ],
+    [ "drv1:GND.2", "bb1:bn.23", "black", [ "h0" ] ],
+    [ "drv1:1A", "stepper1:A-", "green", [ "h0" ] ],
+    [ "stepper1:A+", "drv1:1B", "green", [ "v0" ] ],
+    [ "drv1:2A", "stepper1:B-", "green", [ "h0" ] ],
+    [ "stepper1:B+", "drv1:2B", "green", [ "v0" ] ],
+    [ "bz1:2", "uno:11", "green", [ "v0" ] ],
+    [ "bz1:1", "bb1:bn.6", "green", [ "v0" ] ],
+    [ "led3:A", "r1:2", "green", [ "v0" ] ],
+    [ "r1:1", "bb1:15b.f", "green", [ "v0" ] ],
+    [ "led3:C", "bb1:bn.8", "green", [ "v0" ] ],
+    [ "led1:A", "r2:1", "green", [ "v0" ] ],
+    [ "uno:7", "bb1:18b.h", "green", [ "v0" ] ],
+    [ "bb1:20b.f", "bb1:16b.f", "green", [ "v0" ] ],
+    [ "led2:A", "r3:1", "green", [ "v28.8", "h307.2" ] ],
+    [ "r3:2", "bb1:30b.j", "green", [ "v0" ] ],
+    [ "led1:C", "bb1:bn.1", "green", [ "v0" ] ],
+    [ "led2:C", "bb1:bn.6", "green", [ "v0" ] ],
+    [ "uno:8", "bb1:30b.f", "green", [ "v0" ] ],
+    [ "bb1:18b.g", "r2:2", "green", [ "v0" ] ],
+    [ "bb1:15b.g", "uno:6", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
